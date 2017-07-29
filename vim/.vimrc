@@ -59,12 +59,12 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-let g:solarized_termcolors = 256
-syntax enable
-set background=dark
-colorscheme solarized
+" let g:solarized_termcolors = 256
+" syntax enable
+" set background=dark
+" colorscheme solarized
 
-let g:airline_theme='simple'
+let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
