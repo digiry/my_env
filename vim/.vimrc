@@ -2,11 +2,8 @@ set laststatus=2
 set number
 set incsearch
 set hlsearch
-set ts=4 
-set sts=4
-set shiftwidth=4
-set showmatch
-set ignorecase
+set nocompatible
+set backspace=indent,eol,start
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -29,16 +26,15 @@ Plugin 'tpope/vim-fugitive'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/ninaeros/.vim/plugin' 
+" Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
-Plugin 'ascenator/L9', {'name': 'newL9'}
+" Plugin 'ascenator/L9', {'name': 'newL9'}
 
-" Install vim-colors-solarized-ours
-Plugin 'altercation/vim-colors-solarized'
+
 
 " Install VIM-AIRLINE
 Plugin 'vim-airline/vim-airline'
@@ -46,9 +42,9 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+" filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -58,21 +54,28 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+"
 
-" let g:solarized_termcolors = 256
-" syntax enable
-" set background=dark
-" colorscheme solarized
-
-let g:airline_theme='dark'
+let g:airline_theme='simple'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
-
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
+
+set clipboard=unnamed
+
+inoremap <C-v> <ESC>"+pa
+vnoremap <C-c> "+y
+vnoremap <C-d> "+d
+
+inoremap jj <Esc>   """ jj key is <Esc> setting
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " powerline symbols
 let g:airline_left_sep = ''
@@ -82,8 +85,3 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-
-map <F5> <ESC>:35vs .<CR>
-map <F8> <ESC>:w<CR>
-map <F9> <ESC>:q!<CR>
-map <F12> <ESC>:noh<CR>
