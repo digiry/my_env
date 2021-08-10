@@ -15,7 +15,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history virtualenv time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time virtualenv kubecontext)
+#POWERLEVEL9K_DIR_FOREGROUND=245
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -76,10 +77,23 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs histor
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  nvm
   git
+  gitfast
+  colored-man-pages
+  fzf
   zsh-autosuggestions
   zsh-syntax-highlighting
+  python
+  pyenv
+  virtualenv
+  docker
+  docker-compose
+  httpie
   autojump
+  kubectl
+  minikube
+  ansible
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -110,4 +124,41 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# User configuration
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function fzfv() {
+  fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
+                echo {} is a binary file ||
+                (cat {}) 2> /dev/null | head -500'
+}
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 export LC_ALL=en_US.UTF-8
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Load pyenv into the shell by adding
+# the following to ~/.zshrc:
+eval "$(pyenv init -)"
+
+eval "$(pyenv virtualenv-init -)"
+
+# my nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
+
+export PATH=$(yarn global bin):$PATH
+
+# export DOCKER_TLS_VERIFY="1"
+# export DOCKER_HOST="tcp://192.168.99.100:2376"
+# export DOCKER_CERT_PATH="/Users/ninaeros/.minikube/certs"
+# export MINIKUBE_ACTIVE_DOCKERD="minikube"
+
+# To point your shell to minikube's docker-daemon, run:
+#eval $(minikube -p minikube docker-env)
+#export PATH="/usr/local/opt/m4/bin:$PATH"
