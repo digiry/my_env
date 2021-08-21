@@ -1,9 +1,9 @@
 {
     "editor.fontSize": 16,
-    "editor.fontFamily": "Roboto Mono for Powerline",
+    "editor.fontFamily": "'Hack Nerd Font', 'DejaVu Sans Mono', monospace",
+    "explorer.confirmDelete": false,
     "workbench.colorTheme": "Solarized Dark",
     "workbench.iconTheme": "material-icon-theme",
-    "vim.disableAnnoyingNeovimMessage": true,
     "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
@@ -11,36 +11,101 @@
     "vim.hlsearch": true,
     "vim.insertModeKeyBindings": [
         {
-            "before": ["j","j"],
-            "after": ["<Esc>"]
+            "before": [ "j", "j" ],
+            "after": [ "<Esc>" ]
         }
     ],
-    "vim.otherModesKeyBindingsNonRecursive": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["<leader>","d"],
-            "after": ["d", "d"]
+            "before": [ "<leader>", "d" ],
+            "after": [ "d", "d" ]
         },
         {
-            "before":["<C-n>"],
-            "after":[],
-            "commands": [
-                {
-                    "command": ":nohl"
-                }
-            ]
+            "before": [ "<leader>", "n", "n"],
+            "commands": [ ":nohl" ]
+        },
+        {
+            "before": [ "<leader>", "m" ],
+            "commands": [ "bookmarks.toggle" ]
+        },
+        {
+            "before": [ "<leader>", "b" ],
+            "commands": [ "bookmarks.list" ]
+        },
+        {
+            "before": [ "Z", "Z" ],
+            "commands": [ ":wq" ]
+        },
+        {
+            "before": [ "<leader>", "w" ],
+            "commands": [ "workbench.action.files.save" ]
+        },
+        {
+            "before": [ ">" ],
+            "commands": [ "editor.action.indentLines" ]
+        },
+        {
+            "before": [ "<" ],
+            "commands": [ "editor.action.outdentLines" ]
+        },
+        {
+            "before" : ["<C-h>"],
+            "commands" : [ "workbench.view.explorer" ]
         }
     ],
-    "vim.leader": "<space>",
-    "vim.handleKeys":{
+    "vim.leader": ",",
+    "vim.handleKeys": {
         "<C-a>": false,
-        "<C-f>": false,
-        "<C-w>": false
+        "<C-f>": false
     },
-    "[javascriptreact]": {
-        
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": [
+        "#8FBCBB",
+        "#434C5E"
+    ],
+    "vim.statusBarColors.insert": "#BF616A",
+    "vim.statusBarColors.visual": "#B48EAD",
+    "vim.statusBarColors.visualline": "#B48EAD",
+    "vim.statusBarColors.visualblock": "#A3BE8C",
+    "vim.statusBarColors.replace": "#D08770",
+    "vim.statusBarColors.commandlineinprogress": "#007ACC",
+    "vim.statusBarColors.searchinprogressmode": "#007ACC",
+    "vim.statusBarColors.easymotionmode": "#007ACC",
+    "vim.statusBarColors.easymotioninputmode": "#007ACC",
+    "vim.statusBarColors.surroundinputmode": "#007ACC",
+    "python.languageServer": "Pylance",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#B48EAD",
+        "statusBar.noFolderBackground": "#B48EAD",
+        "statusBar.debuggingBackground": "#B48EAD",
+        "statusBar.foreground": "#434C5E",
+        "statusBar.debuggingForeground": "#434C5E"
     },
-    "files.associations": {
-        "*.js": "javascriptreact"
+    "explorer.confirmDragAndDrop": false,
+    "vs-kubernetes": {
+        "vs-kubernetes.kubeconfig": "/Users/ninaeros/.kube/config",
+        "vs-kubernetes.minikube-path.mac": "/Users/ninaeros/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vs-kubernetes.helm-path.mac": "/Users/ninaeros/.vs-kubernetes/tools/helm/darwin-amd64/helm"
     },
-    "html.autoClosingTags": true
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "editor.tabSize": 4,
+    "editor.cursorStyle": "line",
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "on",
+    "redhat.telemetry.enabled": true,
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "editor.suggestSelection": "first",
+    "window.zoomLevel": 0
 }

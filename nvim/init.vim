@@ -30,6 +30,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+
 " Initialize plugin system
 call plug#end()
 
@@ -44,7 +45,6 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
 
-
 let mapleader = "," " map leader to comma
 
 nmap <F8> :TagbarToggle<CR>
@@ -54,19 +54,19 @@ nmap <F3> :NERDTreeToggle<CR>
 
 set clipboard=unnamed
 
-inoremap <C-v> <ESC>"+pa
-vnoremap <C-c> "+y
-vnoremap <C-d> "+d
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
+inoremap <C-V> <ESC>"+pa
+vnoremap <C-C> "+y
+vnoremap <C-D> "+d
+vmap <C-V> c<ESC>"+p
+imap <C-V> <ESC>"+pa
 
 inoremap jj <Esc>   """ jj key is <Esc> setting
 
 " Smart way to move between panes
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 nnoremap <C-p> :bprevious<CR>
 nnoremap <C-n> :bnext<CR>

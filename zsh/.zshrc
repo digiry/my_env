@@ -4,23 +4,21 @@
 export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ninaeros/.oh-my-zsh"
+export ZSH="/home/ninaeros/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-POWERLEVEL9K_MODE='nerdfont-complete'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL10K_MODE='nerdfont-complete'
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time virtualenv kubecontext)
-#POWERLEVEL9K_DIR_FOREGROUND=245
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -41,7 +39,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs histor
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -53,6 +51,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs histor
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -72,28 +72,28 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs histor
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  nvm
-  git
-  gitfast
+  ansible
+  autojump
   colored-man-pages
-  fzf
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  python
-  pyenv
-  virtualenv
   docker
   docker-compose
+  fzf
+  git
+  gitfast
   httpie
-  autojump
   kubectl
   minikube
-  ansible
+  nvm
+  pyenv
+  python
+  virtualenv
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -124,41 +124,24 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# User configuration
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#
+# My configuration
+#
 
-function fzfv() {
-  fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
-                echo {} is a binary file ||
-                (cat {}) 2> /dev/null | head -500'
-}
-
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-export LC_ALL=en_US.UTF-8
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-
+# pyenv
 # Load pyenv into the shell by adding
-# the following to ~/.zshrc:
+# the following to ~/.bashrc:
+
 eval "$(pyenv init -)"
 
-eval "$(pyenv virtualenv-init -)"
+# nvm
 
-# my nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
+# autojump
+source /usr/share/autojump/autojump.sh
 
-export PATH=$(yarn global bin):$PATH
-
-# export DOCKER_TLS_VERIFY="1"
-# export DOCKER_HOST="tcp://192.168.99.100:2376"
-# export DOCKER_CERT_PATH="/Users/ninaeros/.minikube/certs"
-# export MINIKUBE_ACTIVE_DOCKERD="minikube"
-
-# To point your shell to minikube's docker-daemon, run:
-#eval $(minikube -p minikube docker-env)
-#export PATH="/usr/local/opt/m4/bin:$PATH"
+export VISUAL=nvim
+export EDITOR=nvim
