@@ -145,3 +145,11 @@ source /usr/share/autojump/autojump.sh
 
 export VISUAL=nvim
 export EDITOR=nvim
+
+POWERLINE_STATUS_HOME=${HOME}/.oh-my-zsh/plugins/powerline
+export PATH=$POWERLINE_STATUS_HOME/scripts:$PATH
+
+## docker CLI
+export DOCKER_BUILDKIT=1
+## docker-compose CLI
+export COMPOSE_DOCKER_CLI_BUILD=1
