@@ -13,8 +13,8 @@ export ZSH="/home/ninaeros/.oh-my-zsh"
 POWERLEVEL10K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time virtualenv kubecontext)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir newline status vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs history virtualenv kubecontext)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
