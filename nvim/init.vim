@@ -11,6 +11,7 @@ set mouse=nv
 " highlight ColorColumn ctermbg=darkgrey
 " highlight Visual cterm=reverse ctermbg=0 ctermfg=NONE guibg=Grey20
 
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -30,9 +31,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'nathanaelkane/vim-indent-guides'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
 
 " Initialize plugin system
 call plug#end()
@@ -47,15 +49,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
-
-let NERDTreeShowHidden=1
-
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=grey
-hi IndentGuidesEven ctermbg=darkgrey
+hi IndentGuideOdd   ctermbg=grey
+hi IndentGuideEven  ctermbg=darkgrey
 
 if emoji#available()
   let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
@@ -81,7 +76,8 @@ vnoremap <C-D> "+d
 vmap <C-V> c<ESC>"+p
 imap <C-V> <ESC>"+pa
 
-inoremap jj <Esc>   """ jj key is <Esc> setting
+" jj key is <Esc> setting
+inoremap jj <Esc>
 
 " Smart way to move between panes
 nmap <silent> <C-k> :wincmd k<CR>
@@ -89,19 +85,15 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
+" nnoremap <C-n> :tabprevious<CR>
+" nnoremap <C-m> :tabnext<CR>
+
 nnoremap <C-p> :bprevious<CR>
 nnoremap <C-n> :bnext<CR>
 
-" nnoremap <C-j> :tabprevious<CR>                                                                            
-" nnoremap <C-k> :tabnext<CR>
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
-
 map <leader>nn :noh<CR>
 map <F9> :q!<CR>
-
+" off autoindent while paste
 set pastetoggle=<F7>
 
 set rtp+=/usr/local/opt/fzf
