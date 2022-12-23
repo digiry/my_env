@@ -1,0 +1,4 @@
+let NERDTreeShowHidden=1
+nmap <F3> <Cmd>NERDTreeToggle<CR>
+nmap <leader>ne <Cmd>NERDTree<CR>
+
