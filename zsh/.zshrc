@@ -14,7 +14,8 @@ POWERLEVEL10K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir newline status vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs history virtualenv kubecontext)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs history virtualenv rvm kubecontext)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs virtualenv rvm kubecontext)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -83,16 +84,22 @@ plugins=(
   docker
   docker-compose
   fzf
+  gh
   git
   gitfast
   httpie
   kubectl
   minikube
+  npm
   nvm
   pyenv
   python
+  rvm
   virtualenv
+  z
+  zsh-aliases-exa
   zsh-autosuggestions
+  zsh-nvm
   zsh-syntax-highlighting
 )
 
@@ -125,31 +132,63 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #
-# My configuration
+# My configurations
 #
 
-# pyenv
-# Load pyenv into the shell by adding
-# the following to ~/.bashrc:
+## pyenv
 
+# Load pyenv automatically by appending
+# the following to ~/.zprofile (for login shells) and ~/.zshrc (for interactive shells) :
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# nvm
+eval "$(pyenv virtualenv-init -)"
 
+
+## nvm
+
+# my nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # autojump
-source /usr/share/autojump/autojump.sh
+#source /usr/share/autojump/autojump.sh
 
-export VISUAL=nvim
 export EDITOR=nvim
+export VISUAL="$EDITOR"
 
-POWERLINE_STATUS_HOME=${HOME}/.oh-my-zsh/plugins/powerline
+POWERLINE_STATUS_HOME=${HOME}/Workspaces/github.com/powerline
 export PATH=$POWERLINE_STATUS_HOME/scripts:$PATH
 
+# docker
 ## docker CLI
 export DOCKER_BUILDKIT=1
 ## docker-compose CLI
 export COMPOSE_DOCKER_CLI_BUILD=1
+
+export LC_ALL=en_US.UTF-8
+
+## ruby
+#export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+## Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+#export PATH="$PATH:$HOME/.rvm/bin"
+#source /Users/ninaeros/.rvm/scripts/rvm
+#export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+
+## jenv
+#export PATH="$HOME/.jenv/bin:$PATH"
+#eval "$(jenv init -)"
+#export PATH="$HOME/.jenv/shims/java:$PATH"
+
+# yarn
+export PATH=$(yarn global bin):$PATH
+
+# To point your shell to minikube's docker-daemon, run:
+#eval $(minikube -p minikube docker-env)
+#export PATH="/usr/local/opt/m4/bin:$PATH"

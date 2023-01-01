@@ -4,6 +4,8 @@
 
 ## 방법
 
+✔️ powerline scripts가  python으로 작성된 거라 `python` 실행명령이 shell에서 기본으로 동작해야 한다
+
 원하는 위치에 powerline repo를 내려 받는다.
 
 ```
