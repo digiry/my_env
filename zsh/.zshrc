@@ -1,10 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ninaeros/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -71,6 +71,11 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator background_jobs virtualenv rv
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Lazy loading nvm
+#  Ref: https://github.com/lukechilds/zsh-nvm
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -182,11 +187,13 @@ export LC_ALL=en_US.UTF-8
 #export PATH="/usr/local/opt/openssl@3/bin:$PATH"
 
 ## jenv
+
 #export PATH="$HOME/.jenv/bin:$PATH"
 #eval "$(jenv init -)"
 #export PATH="$HOME/.jenv/shims/java:$PATH"
 
-# yarn
+## yarn
+
 export PATH=$(yarn global bin):$PATH
 
 # To point your shell to minikube's docker-daemon, run:
