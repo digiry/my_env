@@ -1,0 +1,11 @@
+{
+  "diagnostic.enableMessage": "jump",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.file.showHiddenFiles": true,
+  "python.venvPath": ".venv",
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "pyright.enable": true,
+  "pyright.testing.provider": "pytest"
+}
