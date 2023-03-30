@@ -61,6 +61,15 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'f-person/git-blame.nvim'
 
+Plug 'vim-denops/denops.vim'
+Plug 'lambdalisue/gin.vim'
+Plug 'liuchengxu/vista.vim'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'LeafCage/yankround.vim'
+Plug 'glidenote/memolist.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/todo-comments.nvim'
+
 " Initialize plugin system
 call plug#end()
 

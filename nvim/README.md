@@ -13,11 +13,27 @@ coc-css 2.0.0 ~/.config/coc/extensions/node_modules/coc-css
 
 ## Prerequisite
 
+### ripgrep
+
 fzf-preview 에서 ProjectGrep 에서 사용하는 명령
 
 **rg command**
 
 ```bash
 brew install ripgrep
+```
+
+### bat
+
+syntax highlighting
+
+```bash
+brew install bat
+```
+
+### deno
+
+```bash
+brew install deno
 ```
 
