@@ -50,7 +50,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'weirongxu/coc-explorer', {'branch': 'master', 'do': 'yarn install --frozen-lockfile && yarn build'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
-Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
