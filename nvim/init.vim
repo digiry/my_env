@@ -70,6 +70,10 @@ Plug 'glidenote/memolist.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'
 
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'overcache/NeoSolarized'
+
 " Initialize plugin system
 call plug#end()
 
