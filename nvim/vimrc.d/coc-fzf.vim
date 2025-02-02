@@ -1,6 +1,8 @@
 " allow to scroll in the preview
 set mouse=a
 
+set rtp+=/usr/local/opt/fzf
+
 " mappings
 nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
 nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>

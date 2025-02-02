@@ -175,11 +175,15 @@ export PATH=$POWERLINE_STATUS_HOME/scripts:$PATH
 export DOCKER_BUILDKIT=1
 ## docker-compose CLI
 export COMPOSE_DOCKER_CLI_BUILD=1
+# export DOCKER_TLS_VERIFY="1"
+# export DOCKER_HOST="tcp://192.168.99.100:2376"
+# export DOCKER_CERT_PATH="/Users/ninaeros/.minikube/certs"
+# export MINIKUBE_ACTIVE_DOCKERD="minikube"
 
 export LC_ALL=en_US.UTF-8
 
 ## ruby
-#export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 ## Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 #export PATH="$PATH:$HOME/.rvm/bin"
@@ -199,3 +203,9 @@ export PATH=$(yarn global bin):$PATH
 # To point your shell to minikube's docker-daemon, run:
 #eval $(minikube -p minikube docker-env)
 #export PATH="/usr/local/opt/m4/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ninaeros/Workspaces/test/test-gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ninaeros/Workspaces/test/test-gcloud/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ninaeros/Workspaces/test/test-gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ninaeros/Workspaces/test/test-gcloud/google-cloud-sdk/completion.zsh.inc'; fi

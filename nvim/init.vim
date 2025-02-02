@@ -32,18 +32,19 @@ autocmd filetype sh setlocal tabstop=4 shiftwidth=4 expandtab
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
-"call plug#begin('~/.vim/plugged')
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
 Plug 'junegunn/vim-emoji'
+
 Plug 'tpope/vim-fugitive'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 
-Plug 'nathanaelkane/vim-indent-guides'
+"Plug 'nathanaelkane/vim-indent-guides'
 Plug 'easymotion/vim-easymotion'   " Get to where you want to go fast
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -51,28 +52,9 @@ Plug 'weirongxu/coc-explorer', {'branch': 'master', 'do': 'yarn install --frozen
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim' " needed for previews
-Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
-
-Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'christoomey/vim-tmux-navigator'
-
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'f-person/git-blame.nvim'
-
-Plug 'vim-denops/denops.vim'
-Plug 'lambdalisue/gin.vim'
-Plug 'liuchengxu/vista.vim'
-Plug 'MattesGroeger/vim-bookmarks'
-Plug 'LeafCage/yankround.vim'
-Plug 'glidenote/memolist.vim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'folke/todo-comments.nvim'
-
-Plug 'ryanoasis/vim-devicons'
-
-Plug 'overcache/NeoSolarized'
 
 " Initialize plugin system
 call plug#end()
